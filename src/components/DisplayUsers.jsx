@@ -9,7 +9,7 @@ export default function DisplayUsers({id ,name ,email ,getUsers}) {
  
    function deleteUser(e, id) {
         e.preventDefault();
-        const users = JSON.parse(localStorage.getItem("users"));
+        const users = JSON.parse(localStorage.getItem("users")) || [] ;
         const updatedUsers = users.filter(user => user.id !== id);
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         getUsers();
@@ -17,7 +17,7 @@ export default function DisplayUsers({id ,name ,email ,getUsers}) {
 
     function updateUser(e, id) {
         e.preventDefault();
-        const users = JSON.parse(localStorage.getItem("users"));
+        const users = JSON.parse(localStorage.getItem("users")) || [];
         const updatedUsers = users.map(user =>
             user.id === id ? { ...user, name: updatedName, email: updatedEmail } : user
         );
