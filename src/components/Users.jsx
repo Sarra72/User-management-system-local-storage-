@@ -48,7 +48,7 @@ export default function Users() {
             <span>Email</span>
         </div>
       {
-        users.length === 0 ? ( <h2 className="all no-users">No users</h2>) : 
+       Array.isArray(users) && users.length === 0 ? ( <h2 className="all no-users">No users</h2>) : 
         (users.map((user)=>{   
             return <DisplayUsers key={user.id} id={user.id} name={user.name} email={user.email} getUsers={getUsers}/>
         }))
