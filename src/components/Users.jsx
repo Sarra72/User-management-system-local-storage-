@@ -9,7 +9,7 @@ export default function Users() {
     let [users , setUsers] =useState([]);
 
     function getUsers() {
-        const storedUsers = JSON.parse(localStorage.getItem("users")) ;
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
         setUsers(storedUsers);
     }
 
